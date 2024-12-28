@@ -1,6 +1,6 @@
 <?php
-include "dbConnection.php"
- if($isset($_POST["submit"])){
+include "dbConnection.php";
+ if(isset($_POST["submit"])){
     $id=$_POST["id"];
     $name=$_POST["name"];
     $email=$_POST["email"];
@@ -9,7 +9,7 @@ include "dbConnection.php"
     if(empty($id))
     {
         //Insert new record into database table
-        $sql="Insert into students(name,email,phone) VALUES ("$name","$email","$phone")";
+        $sql="Insert into students(name,email,phone) VALUES ('$name','$email','$phone')";
 
     }
     else
