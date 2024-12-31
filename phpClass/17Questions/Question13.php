@@ -33,3 +33,12 @@ return $count;
 $array=[1,1,4];
 $result=isPalindrome($array);
 if($result==count($array))
+
+{
+    echo "The array is Palindrome";
+}
+else
+{
+    echo "The array is not Palindrome";
+}
+?>
