@@ -18,3 +18,8 @@ while($start<$last)
     $start++;
     $last--;
 }
+print_r($array);
+for($i=0;$i<count($array);$i++)
+{
+    if($array[$i]==$array1[$i])
+    {
