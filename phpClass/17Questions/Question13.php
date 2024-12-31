@@ -28,3 +28,8 @@ for($i=0;$i<count($array);$i++)
     
 }
 return $count;
+}
+
+$array=[1,1,4];
+$result=isPalindrome($array);
+if($result==count($array))
