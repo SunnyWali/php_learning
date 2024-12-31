@@ -13,3 +13,8 @@ $last=count($array)-1;
 while($start<$last)
 {
     $temp=$array[$start];
+    $array[$start]=$array[$last];
+    $array[$last]=$temp;
+    $start++;
+    $last--;
+}
