@@ -23,3 +23,8 @@ for($i=0;$i<count($array);$i++)
 {
     if($array[$i]==$array1[$i])
     {
+        $count++;
+    }
+    
+}
+return $count;
