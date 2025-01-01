@@ -15,6 +15,7 @@ for($i=0;$i<count($array);$i++)
         }
     }
 }
+//removing the duplicate element
 for($i=0;$i<count($array)-1;$i++)
 {
     if($array[$i]!=$array[$i+1])
