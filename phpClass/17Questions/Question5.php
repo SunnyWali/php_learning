@@ -2,6 +2,7 @@
 $array=[1,2,96,4,4,15,8,8,9,9];
 $result=[];
 $j=0;
+//sorting the array
 for($i=0;$i<count($array);$i++)
 {
     for($j=$i+1;$j<count($array);$j++)
