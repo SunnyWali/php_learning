@@ -29,3 +29,23 @@
 
 </html>
 
+<?php
+if(isset($_GET['id']))
+{
+    $id=$_GET['id'];
+}
+if($_SERVER['REQUEST_METHOD']=='POST'){
+    $name=$_POST['name'];
+    $email=$_POST['email'];
+    $phone=$_POST['phone'];
+    $sql="UPDATE students SET name='$name', email='$email', phone='$phone' WHERE id='$id'";
+    if($conn->query($sql)===TRUE)
+    {
+        echo "User Upated Successfully";
+    }
+    else
+    {
+        echo "Failed to Update the users";
+    }
+}
+?>
