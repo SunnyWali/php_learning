@@ -1,3 +1,26 @@
+<?php
+include "dbConnection.php";
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Fetch user details
+    $sql = "SELECT * FROM students WHERE id = $id";
+    $result = $conn->query($sql);
+    $user = $result->fetch_assoc();
+}
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $id = $_POST['id'];
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $sql = "UPDATE students SET name='$name', email='$email', phone='$phone' WHERE id='$id'";
+    if ($conn->query($sql) === TRUE) {
+        header("location:read.php");
+    } else {
+        echo "Failed to Update the users";
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,37 +35,17 @@
 <body>
     <div class="row mt-3">
         <div class="col-8 offset-2">
-            <form action="update.php" method="POST">
-            <input name="id" type="hidden" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>" class="form-control">
-                <label for="Name" class="form-label">Name</label>
-                <input placeholder="enter the name" name="name" type="text" class="form-control">
-                <label for="Email" class="form-label">Email</label>
-                <input placeholder="enter the email" name="email" class="form-control" />
-                <label for="Phone" class="form-label">Phone</label>
-                <input placeholder="enter the number" class="form-control" name="phone" /><br>
-                <input type="submit" value="update" />
+            <form action="update.php" method="post">
+                <input type="hidden" name="id" value="<?php echo $user['id']; ?>">
+                <label name="name" class="form-label">Name:</label>
+                <input type="text" name="name" class="form-control" value="<?php echo $user['name']; ?>" required>
+                <label name="email" class="form-label">Email:</label>
+                <input type="email" name="email" class="form-control" value="<?php echo $user['email']; ?>" required><br>
+                <label name="phone" class="form-label">Phone:</label>
+                <input type="number" name="phone" class="form-control" value="<?php echo $user['phone']; ?>" required><br>
+                <input type="submit" value="update" type="submit">
             </form>
         </div>
     </div>
 </body>
-
 </html>
-
-<?php
-include "dbConnection.php";
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $id=$_POST[id];
-    $name=$_POST['name'];
-    $email=$_POST['email'];
-    $phone=$_POST['phone'];
-    $sql="UPDATE students SET name='$name', email='$email', phone='$phone' WHERE id='$id'";
-    if($conn->query($sql)===TRUE)
-    {
-        header("location:read.php");
-    }
-    else
-    {
-        echo "Failed to Update the users";
-    }
-}
-?>
