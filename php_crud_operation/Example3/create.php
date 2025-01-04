@@ -43,3 +43,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "Failed to esablished the connection with the database";
     }
 }
+$conn->close();
+?>
