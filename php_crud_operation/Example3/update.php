@@ -13,8 +13,7 @@
     <div class="row mt-3">
         <div class="col-8 offset-2">
             <form action="update.php" method="POST">
-            <label for="id" class="form-label">ID</label>
-            <input placeholder="enter the id" name="id" type="number" class="form-control">
+            <input name="id" type="hidden" value="<?php echo isset($_GET['id']) ? $_GET['id'] : ''; ?>" class="form-control">
                 <label for="Name" class="form-label">Name</label>
                 <input placeholder="enter the name" name="name" type="text" class="form-control">
                 <label for="Email" class="form-label">Email</label>
@@ -30,18 +29,16 @@
 </html>
 
 <?php
-if(isset($_GET['id']))
-{
-    $id=$_GET['id'];
-}
+include "dbConnection.php";
 if($_SERVER['REQUEST_METHOD']=='POST'){
+    $id=$_POST[id];
     $name=$_POST['name'];
     $email=$_POST['email'];
     $phone=$_POST['phone'];
     $sql="UPDATE students SET name='$name', email='$email', phone='$phone' WHERE id='$id'";
     if($conn->query($sql)===TRUE)
     {
-        echo "User Upated Successfully";
+        header("location:read.php");
     }
     else
     {
