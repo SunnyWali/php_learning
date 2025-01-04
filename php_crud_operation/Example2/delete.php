@@ -11,7 +11,6 @@ if (isset($_GET['id'])) {
         echo "Error deleting record: " . $conn->error;
     }
 }
-
 $conn->close();
 header("Location: read.php"); // Redirect back to the main page
 ?>

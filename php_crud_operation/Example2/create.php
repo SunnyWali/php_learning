@@ -1,17 +1,3 @@
-<?php
-include "dbConnection.php";
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $sql = "Insert into students(name,email,phone) VALUES ('$name','$email','$phone')";
-    if ($conn->query($sql)) {
-        header("Location:read.php");
-    } else {
-        echo "Data failed to saved successfully";
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,20 +10,38 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-<div class="row mt-3">
-<div class="col-8 offset-2">
-        <form method="POST">
-            <label for="Name" class="form-label">Name</label>
-            <input placeholder="enter the name" name="name" type="text" class="form-control" />
-            <label for="Email" class="form-label">Email</label>
-            <input placeholder="enter the email" name="email" type="text" class="form-control" />
-            <label for="Phone" class="form-label">Phone</label>
-            <input placeholder="enter the phone of the users" name="phone" type="number" class="form-control" /><br>
-            <input type="submit" value="submit" name="submit" />
-        </form>
+    <div class="row mt-3">
+        <div class="col-8 offset-2">
+            <form method="POST">
+                <label for="name" class="form-label">Name</label>
+                <input placeholder="enter the name of the students" name="name" type="text" class="form-control" /><br>
+                <label for="email" class="form-label">Email</label>
+                <input placeholder="enter the email of the students" name="email" type="text"
+                    class="form-control" /><br>
+                <label for="phone" class="form-label">Phone</label>
+                <input placeholder="enter the number of the students" name="phone" type="number"
+                    class="form-control" /><br>
+                <input type="submit" value="submit" type="submit">
+            </form>
+        </div>
     </div>
-    </div>
-
 </body>
 
 </html>
+
+
+<?php
+include "dbConnection.php";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $sql = "INSERT INTO students(name,email,phone) values('$name','$email','$phone')";
+    if ($conn->query($sql)) {
+        header("location:read.php");
+    } else {
+        echo "Failed to esablished the connection with the database";
+    }
+}
+$conn->close();
+?>
