@@ -1,19 +1,22 @@
 <?php
-$age=readline("enter the age of the person");
+function returnTicketPrice($age){
 if($age>=0 && $age<=5)
 {
-    echo "No ticket needed to buy";
-}
+    return "No ticket price needed";
+}    
 else if($age>5 && $age<18)
 {
-    echo "The ticket price is $10";
+    return "$10 needed for movie ticket";
 }
 else if($age>=18 && $age<60)
 {
-    echo "The ticket price is $15";
+    return "$15 needed for movie ticket";
 }
 else
 {
-    echo "The ticket price is $8";
+    return "$8 is needed for the movie ticket";
 }
+}
+$age=readline("Enter the age of the person");
+echo "".returnTicketPrice($age);
 ?>
