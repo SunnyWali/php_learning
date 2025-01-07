@@ -16,6 +16,7 @@
 </body>
 </html>
 
+<!-- php code -->
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = intval($_POST['row']);
