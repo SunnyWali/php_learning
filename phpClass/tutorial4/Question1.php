@@ -8,7 +8,6 @@ function parseUrl($url)
     }
     return $host;
 }
-
 $url="https://www.google.com?q='php";
 $domain=parseUrl($url);
 echo "The domain is: ".$domain;
