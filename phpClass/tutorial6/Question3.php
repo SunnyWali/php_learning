@@ -1,18 +1,24 @@
 <?php
-function swapReverse()
+function swapArray()
 {
-    $reversed=array();
-    $fruits=array(
-        "apple"=>1,
-        "banana"=>2,
-        "orange"=>5,
-        "pineapple"=>6
-        );
-        foreach($fruits as $key=>$value)
-        {
-            $reversed[$value]=$key;
-        }
-        print_r($reversed);
+$array=[
+    "apple"=>1,
+    "banana"=>2,
+    "orange"=>3,
+    "papaya"=>4,
+    "pineapple"=>5
+    ];
+    $reversed=[];
+    foreach($array as $key=>$value)
+    {
+        $reversed[$value]=$key;
+    }
+    return $reversed;
 }
-swapReverse();
+
+echo "The swapped array are: ";
+print_r(swapArray());
 ?>
+
+    
+    
