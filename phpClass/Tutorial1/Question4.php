@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="Post">
+    <form method="Post" >
         <h3>Choose a value</h3>
         <select name="value">
             <option name="1">1</option>
@@ -33,7 +33,12 @@ if($_SERVER['REQUEST_METHOD']=='POST')
     echo"<table border='1'>";
     for($i=1;$i<=10;$i++)
     {
-        echo "<tr> <td>".$i."x".$value."=".$i*$value."</td> </tr>";
+        echo "<tr> 
+        <td>".$i."</td>
+        <td>"."x"."</td>
+        <td>".$value."</td>
+        <td>"."="."</td>
+        <td>".$i*$value."</td>" ."</tr>";
     }
     echo"</table>";
 }
